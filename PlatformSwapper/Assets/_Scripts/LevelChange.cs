@@ -13,8 +13,8 @@ public class LevelChange : MonoBehaviour {
 
     bool FirstRayHit = false;
 
-    public static int currentLevel = 0;
-    public int maxLevel = 3;
+    public static int currentLevel = 1;
+    public int maxLevel = 4;
 
     float xChange = 0;
     float yChange = 0;
@@ -58,7 +58,7 @@ public class LevelChange : MonoBehaviour {
         if (changeLevel == true && currentLevel < maxLevel)
         {
             FirstRayHit = false;
-            transform.position = new Vector3(currentLevel * 50, 1.5f, -1);
+            transform.position = new Vector3((currentLevel - 1) * 50, 1.5f, -1);
             changeLevel = false;
             StartCoroutine(MoveDelay());
         }

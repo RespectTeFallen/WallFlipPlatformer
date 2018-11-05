@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (shoot && LevelChange.currentLevel == 3 && !shootLock)
+		if (shoot && LevelChange.currentLevel == 4 && !shootLock)
         {
             bullet.gameObject.SetActive(true);
             GameObject BulletDupe = Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
