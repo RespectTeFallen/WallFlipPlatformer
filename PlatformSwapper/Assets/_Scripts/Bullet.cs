@@ -7,13 +7,15 @@ public class Bullet : MonoBehaviour {
     [SerializeField]
     GameObject bullet;
     [SerializeField]
-    GameObject Player;
-    [SerializeField]
     GameObject barrel;
 
-    public static bool shoot = false;
+    //shootLock is not yet implemented into the game, used in the future for disabling the turret.
     public static bool shootLock = false;
+
+    public static bool shoot = false;
     public float force = 100;
+
+    public int levelInit;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +25,7 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (shoot && LevelChange.currentLevel == 4 && !shootLock)
+		if (shoot && LevelChange.currentLevel == levelInit && !shootLock)
         {
             bullet.gameObject.SetActive(true);
             GameObject BulletDupe = Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
