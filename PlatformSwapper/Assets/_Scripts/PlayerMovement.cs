@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour {
     GameObject edge1;
     [SerializeField]
     GameObject edge2;
+    bool canWalljump = false;
+    public float walljumpForce;
 
     bool Dash = false;
     float dashTime = 0;
@@ -47,6 +49,9 @@ public class PlayerMovement : MonoBehaviour {
         {
             GroundCheck();
         }
+
+        WallJumpCheck();
+
         if (canMove)
         {
             float hAxis = Input.GetAxis("Horizontal");
@@ -111,6 +116,40 @@ public class PlayerMovement : MonoBehaviour {
         else
         {
             isGrounded = false;
+        }
+    }
+
+    void WallJumpCheck()
+    {
+        RaycastHit hit;
+        Ray RightRay = new Ray(edge1.transform.position, Vector3.right);
+        if (Physics.Raycast(RightRay, out hit, 0.02f))
+        {
+            if (hit.transform.name == "WallJump")
+            {
+                Physics.gravity.Set(0, -1, 0);
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    isGrounded = true;
+                    rb.velocity = new Vector3(0, 0, 0);
+                    rb.AddForce(Vector3.left * walljumpForce, ForceMode.Impulse);
+                }
+
+            }
+        }
+        RaycastHit hit2;
+        Ray LeftRay = new Ray(edge2.transform.position, Vector3.left);
+        if (Physics.Raycast(LeftRay, out hit2, 0.02f))
+        {
+            if (hit2.transform.name == "WallJump")
+            {
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    isGrounded = true;
+                    rb.velocity = new Vector3(0, 0, 0);
+                    rb.AddForce(Vector3.right * walljumpForce, ForceMode.Impulse);
+                }
+            }
         }
     }
 

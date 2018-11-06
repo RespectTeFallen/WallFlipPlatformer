@@ -14,58 +14,41 @@ public class LevelChange : MonoBehaviour {
     bool FirstRayHit = false;
 
     public static int currentLevel = 1;
-    public int maxLevel = 4;
+    public int setLevel;
+    public int maxLevel = 6;
 
     float xChange = 0;
     float yChange = 0;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        currentLevel = setLevel;
+        transform.position = new Vector3((LevelChange.currentLevel - 1) * 50, 1, -1.01f);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-
+        
         RaycastHit hit;
-        Ray downRay = new Ray(edge1.transform.position, Vector3.down);
+        Ray downRay = new Ray(transform.position, Vector3.down);
         if (Physics.Raycast(downRay, out hit, 0.5f))
         {
             if (hit.transform.name == "EndPlatform")
             {
                 PlayerMovement.canMove = false;
-                currentLevel += 1;
-                changeLevel = true;
+                if (currentLevel < maxLevel)
+                {
+                    currentLevel += 1;
+                    transform.position = new Vector3((currentLevel - 1) * 50, 1.5f, -1.01f);
+                    changeLevel = false;
+                    StartCoroutine(MoveDelay());
+                }
+                else
+                {
+                    PlayerMovement.canMove = true;
+                }
                 FirstRayHit = true;
             }
-        }
-
-        if (!FirstRayHit)
-        {
-            RaycastHit hit2;
-            Ray downRay2 = new Ray(edge2.transform.position, Vector3.down);
-            if (Physics.Raycast(downRay2, out hit2))
-            {
-                if (hit.transform.name == "EndPlatform")
-                {
-                    PlayerMovement.canMove = false;
-                    currentLevel += 1;
-                    changeLevel = true;
-                }
-            }
-        }
-
-        if (changeLevel == true && currentLevel < maxLevel)
-        {
-            FirstRayHit = false;
-            transform.position = new Vector3((currentLevel - 1) * 50, 1.5f, -1);
-            changeLevel = false;
-            StartCoroutine(MoveDelay());
-        }
-        else
-        {
-            changeLevel = false;
-            PlayerMovement.canMove = true;
         }
 	}
 

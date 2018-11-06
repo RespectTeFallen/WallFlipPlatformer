@@ -19,6 +19,6 @@ public class ResetPos : MonoBehaviour {
 
     void reset()
     {
-        transform.position = new Vector3((LevelChange.currentLevel - 1), 1, -1.01f);
+        transform.position = new Vector3((LevelChange.currentLevel - 1) * 50, 1, -1.01f);
     }
 }
