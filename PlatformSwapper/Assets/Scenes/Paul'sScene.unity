@@ -4615,7 +4615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edge1: {fileID: 356751775}
   edge2: {fileID: 1380721308}
-  setLevel: 7
+  setLevel: 1
   maxLevel: 7
 --- !u!95 &1709520111
 Animator:
