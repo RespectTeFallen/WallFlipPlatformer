@@ -11,7 +11,7 @@ public class ResetPos : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (transform.position.y < -5 || transform.position.y > 15 || Input.GetKeyDown(KeyCode.R))
+		if (transform.position.y < -5 || transform.position.y > 20 || Input.GetKeyDown(KeyCode.R))
         {
             reset();
         }

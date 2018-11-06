@@ -15,7 +15,7 @@ public class LevelChange : MonoBehaviour {
 
     public static int currentLevel = 1;
     public int setLevel;
-    public int maxLevel = 6;
+    public int maxLevel = 7;
 
     float xChange = 0;
     float yChange = 0;
