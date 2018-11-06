@@ -327,7 +327,6 @@ Transform:
   - {fileID: 525405343}
   - {fileID: 1588250527}
   - {fileID: 691984435}
-  - {fileID: 1951997633}
   m_Father: {fileID: 1484601256}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1763,7 +1762,7 @@ MonoBehaviour:
   bullet: {fileID: 142859418}
   barrel: {fileID: 1340103785}
   force: 800
-  levelInit: 1
+  levelInit: 4
 --- !u!1 &676103789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,6 +2788,7 @@ Transform:
   - {fileID: 9992701}
   - {fileID: 873809736}
   - {fileID: 762619631}
+  - {fileID: 1951997633}
   m_Father: {fileID: 1033158308}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5254,7 +5254,7 @@ Transform:
   m_Children:
   - {fileID: 957812384}
   - {fileID: 584600079}
-  m_Father: {fileID: 20794070}
+  m_Father: {fileID: 971877080}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1977845185
