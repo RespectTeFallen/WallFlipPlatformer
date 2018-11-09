@@ -125,14 +125,12 @@ public class PlayerMovement : MonoBehaviour {
         Ray RightRay = new Ray(edge1.transform.position, Vector3.right);
         if (Physics.Raycast(RightRay, out hit, 0.02f))
         {
-            if (hit.transform.name == "WallJump" && !Input.GetKey(KeyCode.D))
+            if (hit.transform.name == "WallJump")
             {
                 isGrounded = true;
-                rb.useGravity = false;
                 rb.velocity = new Vector3(0, 0, 0);
                 if (Input.GetKey(KeyCode.Space))
                 {
-                    rb.useGravity = true;
                     rb.velocity = new Vector3(0, 0, 0);
                     rb.AddForce(Vector3.left * walljumpForce, ForceMode.Impulse);
                 }
@@ -143,14 +141,12 @@ public class PlayerMovement : MonoBehaviour {
         Ray LeftRay = new Ray(edge2.transform.position, Vector3.left);
         if (Physics.Raycast(LeftRay, out hit2, 0.02f))
         {
-            if (hit2.transform.name == "WallJump" && !Input.GetKey(KeyCode.A))
+            if (hit2.transform.name == "WallJump")
             {
                 isGrounded = true;
-                rb.useGravity = false;
                 rb.velocity = new Vector3(0, 0, 0);
                 if (Input.GetKey(KeyCode.Space))
                 {
-                    rb.useGravity = true;
                     rb.velocity = new Vector3(0, 0, 0);
                     rb.AddForce(Vector3.right * walljumpForce, ForceMode.Impulse);
                 }
